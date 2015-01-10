@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>Wordsworth</title>
+	<style>
+	[ng-cloak] {
+		display: none;
+	}
+	</style>
+</head>
+<body ng-app="wordsworth">
+	<div ng-cloak ng-controller="MainController as main">
+		<h1>{{main.message}}</h1>
+		<input type="text" ng-model="main.message">
+	</div>
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script>
+		System.baseURL = '/';
+		System.import('Wordsworth/app');
+	</script>
+</body>
+</html>
