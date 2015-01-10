@@ -1,8 +1,10 @@
 "format es6";
 
-export class MainController {
+class MainController {
 	constructor () {
 		this.message = 'Hello World!';
 	}
 }
 MainController.__name__ = 'MainController';
+
+export default MainController;
