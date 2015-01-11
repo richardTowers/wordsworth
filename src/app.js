@@ -17,7 +17,7 @@ angular.module('wordsworth', ['ngRoute', 'ngMaterial'])
 		$routeProvider.when('/signin', {
 			templateUrl: 'src/signin/sign-in.html',
 			controller: SignInController.__name__,
-			controllerAs: 'main'
+			controllerAs: 'signin'
 		}).otherwise({
 			redirectTo: '/signin'
 		});
