@@ -7,13 +7,13 @@
 		<div class="avatar-list">
 			<img
 				ng-repeat="avatar in signin.avatars"
-				ng-src="{{avatar.url}}"
+				ng-src="{{avatar}}"
 				ng-click="signin.selectAvatar(avatar)"
 				ng-class="{selected: signin.selectedAvatar == avatar}"
 				class="avatar" alt="avatar-{{$index}}">
 		</div>
-		<div layout="right" layout-align="end start">
-			<md-button class="md-fab check-button">
+		<div layout="row" layout-align="end start">
+			<md-button class="md-fab check-button" ng-click="signin.signin()">
 				<md-icon aria-label="check">
 					TODO
 				</md-icon>
