@@ -3,59 +3,7 @@
 <head>
 	<title>Wordsworth</title>
 	<link rel="stylesheet" href="jspm_packages/github/FortAwesome/Font-Awesome@4.2.0/css/font-awesome.min.css">
-	<style>
-	html, body {
-		height: 100%;
-	}
-	md-content {
-		background-image: url('src/images/buttermere.jpg'); 
-		background-size: cover;
-		height: 100%;
-	}
-	md-card {
-		background: white;
-	}
-	.sign-in {
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 64px;
-	}
-	.sign-in h2 {
-		font-weight: 200;
-	}
-	.check-button {
-		margin-left: auto;
-	}
-	.avatar {
-		width: 64px;
-		height: 64px;
-		border-radius: 50%;
-		margin: 24px;
-		padding: 2px;
-		cursor: pointer;
-	}
-	.avatar.selected {
-		border: 3px solid #03a9f4;
-	}
-	@media (max-width: 959px) {
-		.sign-in {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-		md-content,.sign-in {
-			height: 100%;
-		}
-	}
-	md-input-group.ng-invalid input.ng-touched {
-		border-bottom:2px solid #DC4A3D;
-	}
-	.ng-submitted md-input-group.ng-invalid input {
-		border-bottom:2px solid #DC4A3D;
-	}
-	[ng-cloak] {
-		display: none;
-	}
-	</style>
+	<link rel="stylesheet" href="src/app.css">
 </head>
 <body ng-app="wordsworth" ng-cloak>
 	<ng-view></ng-view>
