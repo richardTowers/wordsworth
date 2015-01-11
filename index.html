@@ -52,29 +52,7 @@
 	</style>
 </head>
 <body ng-app="wordsworth" ng-cloak>
-	<md-content class="main" flex ng-controller="SignInController as main">
-		<h1>Wordsworth</h1>
-		<md-card class="sign-in" flex flex-gt-md="40">
-			<h2>Your Profile</h2>
-			<md-text-float label="Nickname" ng-model="main.nickname"></md-text-float>
-			<h2>Choose an Avatar</h2>
-			<div class="avatar-list">
-				<img
-					ng-repeat="avatar in main.avatars"
-					ng-src="{{avatar.url}}"
-					ng-click="main.selectAvatar(avatar)"
-					ng-class="{selected: main.selectedAvatar == avatar}"
-					class="avatar" alt="avatar-{{$index}}">
-			</div>
-			<div layout="right" layout-align="end start">
-				<md-button class="md-fab check-button">
-					<md-icon aria-label="check">
-						TODO
-					</md-icon>
-				</md-button>
-			</div>
-		</md-card>
-	</md-content>
+	<ng-view></ng-view>
 	<script src="jspm_packages/system.js"></script>
 	<script src="config.js"></script>
 	<script>

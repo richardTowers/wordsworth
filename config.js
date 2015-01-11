@@ -10,11 +10,15 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.8",
     "angular-material": "github:angular/bower-material@0.6.1",
+    "angular-route": "github:angular/bower-angular-route@1.3.8",
     "hammer": "github:hammerjs/hammer.js@2.0.4",
     "github:angular/bower-angular-animate@1.3.8": {
       "angular": "github:angular/bower-angular@1.3.8"
     },
     "github:angular/bower-angular-aria@1.3.8": {
+      "angular": "github:angular/bower-angular@1.3.8"
+    },
+    "github:angular/bower-angular-route@1.3.8": {
       "angular": "github:angular/bower-angular@1.3.8"
     },
     "github:angular/bower-material@0.6.1": {
