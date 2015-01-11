@@ -10,6 +10,7 @@ System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.8",
     "angular-material": "github:angular/bower-material@0.6.1",
+    "hammer": "github:hammerjs/hammer.js@2.0.4",
     "github:angular/bower-angular-animate@1.3.8": {
       "angular": "github:angular/bower-angular@1.3.8"
     },

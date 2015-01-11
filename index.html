@@ -3,16 +3,70 @@
 <head>
 	<title>Wordsworth</title>
 	<style>
+	html, body, md-content {
+		background: #eee !important;
+	}
+	md-card {
+		background: white;
+	}
+	.sign-in {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 64px;
+	}
+	.sign-in h2 {
+		font-weight: 200;
+	}
+	.check-button {
+		margin-left: auto;
+	}
+	.avatar {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		margin: 24px;
+		padding: 2px;
+	}
+	.avatar.selected {
+		border: 3px solid #03a9f4;
+	}
+	@media (max-width: 959px) {
+		.sign-in {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		md-content,.sign-in {
+			height: 100%;
+		}
+	}
 	[ng-cloak] {
 		display: none;
 	}
 	</style>
 </head>
-<body ng-app="wordsworth">
-	<div ng-cloak ng-controller="MainController as main">
-		<h1>{{main.message}}</h1>
-		<input type="text" ng-model="main.message">
-	</div>
+<body ng-app="wordsworth" ng-cloak>
+	<md-content class="main" flex ng-controller="MainController as main">
+		<md-card class="sign-in" flex flex-gt-md="40">
+			<h2>Your Profile</h2>
+			<md-text-float label="Nickname" ng-model="main.nickname"></md-text-float>
+			<h2>Choose an Avatar</h2>
+			<div class="avatar-list">
+				<img
+					ng-repeat="avatar in main.avatars"
+					ng-src="{{avatar.url}}"
+					ng-click="main.selectAvatar(avatar)"
+					ng-class="{selected: main.selectedAvatar == avatar}"
+					class="avatar" alt="avatar-{{$index}}">
+			</div>
+			<div layout="right" layout-align="end start">
+				<md-button class="md-fab check-button">
+					<md-icon aria-label="check">
+						TODO
+					</md-icon>
+				</md-button>
+			</div>
+		</md-card>
+	</md-content>
 	<script src="jspm_packages/system.js"></script>
 	<script src="config.js"></script>
 	<script>
