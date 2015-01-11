@@ -8,7 +8,7 @@ import Hammer from 'hammer';
 window.Hammer = Hammer;
 
 import angularMaterial from 'angular-material';
-import MainController from 'Wordsworth/main/main-controller';
+import SignInController from 'Wordsworth/signin/signin-controller';
 
 angular.module('wordsworth', ['ngMaterial'])
-	.controller(MainController.__name__, MainController);
+	.controller(SignInController.__name__, SignInController);

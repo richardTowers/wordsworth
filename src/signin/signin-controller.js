@@ -1,6 +1,6 @@
 "format es6";
 
-class MainController {
+class SignInController {
 	constructor () {
 		function doge (segment) {
 			return `http://doge2048.com/img/212/doge-${segment}-212.gif`;
@@ -9,14 +9,14 @@ class MainController {
 			{ url: doge('wink')        },
 			{ url: doge('shake-space') },
 			{ url: doge('peepers')     },
+			{ url: doge('prizza')      },
 			{ url: doge('hat')         },
 			{ url: doge('gradient')    },
-			{ url: doge('sunglasses')  },
-			{ url: doge('shake')       },
-			{ url: doge('derp')        },
-			{ url: doge('prizza')      },
 			{ url: doge('fat')         },
-			{ url: doge('rainbow')     }
+			{ url: doge('sunglasses')  },
+			{ url: doge('rainbow')     },
+			{ url: doge('derp')        },
+			{ url: doge('shake')       }
 		];
 		this.selectAvatar(this.avatars[0]);
 	}
@@ -24,6 +24,6 @@ class MainController {
 		this.selectedAvatar = avatar;
 	}
 }
-MainController.__name__ = 'MainController';
+SignInController.__name__ = 'SignInController';
 
-export default MainController;
+export default SignInController;
