@@ -10,8 +10,10 @@ window.Hammer = Hammer;
 
 import angularMaterial from 'angular-material';
 import profileModule from 'Wordsworth/profile/';
+import roomsModule from 'Wordsworth/rooms/';
+import roomModule from 'Wordsworth/room/';
 
-angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name])
+angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name, roomsModule.name, roomModule.name])
 	.config(($routeProvider) => {
 		$routeProvider.when('/profile', {
 			name: 'profile',
@@ -19,8 +21,13 @@ angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name])
 			controller: 'ProfileController',
 			controllerAs: 'profile'
 		}).when('/rooms', {
-			name: 'rooms',
-			templateUrl: 'src/rooms/rooms.html'
+			templateUrl: 'src/rooms/rooms.html',
+			controller: 'RoomsController',
+			controllerAs: 'rooms'
+		}).when('/rooms/:name', {
+			templateUrl: 'src/room/room.html',
+			controller: 'RoomController',
+			controllerAs: 'room'
 		}).otherwise({
 			redirectTo: '/rooms'
 		});

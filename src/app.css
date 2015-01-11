@@ -48,6 +48,12 @@ md-input-group.ng-invalid input.ng-touched {
 .ng-submitted md-input-group.ng-invalid input {
 	border-bottom:2px solid #DC4A3D;
 }
+.big input {
+	width: 100%;
+}
+.create-button-holder {
+	padding: 30px;
+}
 [ng-cloak] {
 	display: none;
 }

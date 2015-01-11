@@ -1,0 +1,9 @@
+<md-bottom-sheet>
+	<form name="newRoom" ng-submit="newRoom.$valid && room.create()">
+		<md-text-float label="Room name" ng-model="room.name" ng-required="true"></md-text-float>
+		<md-text-float label="Description" class="big" ng-model="room.description"></md-text-float>
+		<md-button class="md-fab check-button md-primary" aria-label="submit">
+			<i class="fa fa-check fa-2x"></i>
+		</md-button>
+	</form>
+</md-bottom-sheet>
