@@ -9,33 +9,31 @@ import Hammer from 'hammer';
 window.Hammer = Hammer;
 
 import angularMaterial from 'angular-material';
-import signInModule from 'Wordsworth/signin/index';
+import profileModule from 'Wordsworth/profile/';
 
-angular.module('wordsworth', ['ngRoute', 'ngMaterial', signInModule.name])
+angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name])
 	.config(($routeProvider) => {
-		$routeProvider.when('/signin', {
-			name: 'signin',
-			templateUrl: 'src/signin/sign-in.html',
-			controller: 'SignInController',
-			controllerAs: 'signin'
+		$routeProvider.when('/profile', {
+			name: 'profile',
+			templateUrl: 'src/profile/profile.html',
+			controller: 'ProfileController',
+			controllerAs: 'profile'
 		}).when('/rooms', {
 			name: 'rooms',
-			templateUrl: 'src/rooms/rooms.html',
-			controller: 'SignInController',
-			controllerAs: 'signin'
+			templateUrl: 'src/rooms/rooms.html'
 		}).otherwise({
 			redirectTo: '/rooms'
 		});
 	})
 	.run(($rootScope, $location, UserService) => {
 		$rootScope.$on('$routeChangeStart', (e, next) => {
-			if (next.name === 'signin') {
+			if (next.name === 'profile') {
 				// Do nothing...
 				return;
 			}
 			var user = UserService.getCurrentUser();
 			if (!user) {
-				$location.path('/signin');
+				$location.path('/profile');
 			}
 		});
 

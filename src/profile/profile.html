@@ -2,18 +2,18 @@
 	<h1>Wordsworth</h1>
 	<md-card class="sign-in" flex flex-gt-md="40">
 		<h2>Your Profile</h2>
-		<md-text-float label="Nickname" ng-model="signin.nickname"></md-text-float>
+		<md-text-float label="Nickname" ng-model="profile.nickname"></md-text-float>
 		<h2>Choose an Avatar</h2>
 		<div class="avatar-list">
 			<img
-				ng-repeat="avatar in signin.avatars"
+				ng-repeat="avatar in profile.avatars"
 				ng-src="{{avatar}}"
-				ng-click="signin.selectAvatar(avatar)"
-				ng-class="{selected: signin.selectedAvatar == avatar}"
+				ng-click="profile.selectAvatar(avatar)"
+				ng-class="{selected: profile.selectedAvatar == avatar}"
 				class="avatar" alt="avatar-{{$index}}">
 		</div>
 		<div layout="row" layout-align="end start">
-			<md-button class="md-fab check-button" ng-click="signin.signin()">
+			<md-button class="md-fab check-button" ng-click="profile.signin()">
 				<md-icon aria-label="check">
 					TODO
 				</md-icon>

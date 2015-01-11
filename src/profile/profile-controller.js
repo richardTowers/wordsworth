@@ -1,6 +1,6 @@
 "format es6";
 
-class SignInController {
+class ProfileController {
 	constructor (UserService, $location) {
 		function doge (segment) {
 			return `http://doge2048.com/img/212/doge-${segment}-212.gif`;
@@ -39,6 +39,6 @@ class SignInController {
 	}
 
 }
-SignInController.__name__ = 'SignInController';
+ProfileController.__name__ = 'ProfileController';
 
-export default SignInController;
+export default ProfileController;
