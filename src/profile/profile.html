@@ -1,23 +1,22 @@
 <md-content class="main" flex>
-	<h1>Wordsworth</h1>
 	<md-card class="sign-in" flex flex-gt-md="40">
-		<h2>Your Profile</h2>
-		<md-text-float label="Nickname" ng-model="profile.nickname"></md-text-float>
-		<h2>Choose an Avatar</h2>
-		<div class="avatar-list">
-			<img
-				ng-repeat="avatar in profile.avatars"
-				ng-src="{{avatar}}"
-				ng-click="profile.selectAvatar(avatar)"
-				ng-class="{selected: profile.selectedAvatar == avatar}"
-				class="avatar" alt="avatar-{{$index}}">
-		</div>
-		<div layout="row" layout-align="end start">
-			<md-button class="md-fab check-button" ng-click="profile.signin()">
-				<md-icon aria-label="check">
-					TODO
-				</md-icon>
-			</md-button>
-		</div>
+		<form name="profileForm" ng-submit="profileForm.$valid && profile.signin()">
+			<h2>Your Profile</h2>
+			<md-text-float label="Nickname" ng-model="profile.nickname" ng-required="true"></md-text-float>
+			<h2>Choose an Avatar</h2>
+			<div class="avatar-list">
+				<img
+					ng-repeat="avatar in profile.avatars"
+					ng-src="{{avatar}}"
+					ng-click="profile.selectAvatar(avatar)"
+					ng-class="{selected: profile.selectedAvatar == avatar}"
+					class="avatar" alt="avatar-{{$index}}">
+			</div>
+			<div layout="row" layout-align="end start">
+				<md-button class="md-fab check-button md-primary" aria-label="submit">
+					<i class="fa fa-check fa-2x"></i>
+				</md-button>
+			</div>
+		</form>
 	</md-card>
 </md-content>

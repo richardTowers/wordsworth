@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Wordsworth</title>
+	<link rel="stylesheet" href="jspm_packages/github/FortAwesome/Font-Awesome@4.2.0/css/font-awesome.min.css">
 	<style>
 	html, body {
 		height: 100%;
@@ -45,10 +46,11 @@
 			height: 100%;
 		}
 	}
-	h1 {
-		color: white;
-		font-weight: 200;
-		padding: 10px;
+	md-input-group.ng-invalid input.ng-touched {
+		border-bottom:2px solid #DC4A3D;
+	}
+	.ng-submitted md-input-group.ng-invalid input {
+		border-bottom:2px solid #DC4A3D;
 	}
 	[ng-cloak] {
 		display: none;

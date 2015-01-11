@@ -8,6 +8,7 @@ System.config({
 
 System.config({
   "map": {
+    "Font-Awesome": "github:FortAwesome/Font-Awesome@4.2.0",
     "angular": "github:angular/bower-angular@1.3.8",
     "angular-material": "github:angular/bower-material@0.6.1",
     "angular-route": "github:angular/bower-angular-route@1.3.8",
