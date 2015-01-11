@@ -3,8 +3,9 @@
 import NewRoomController from './new-room-controller';
 
 class RoomsController {
-	constructor ($mdBottomSheet) {
+	constructor ($mdBottomSheet, UserService) {
 		this.$mdBottomSheet = $mdBottomSheet;
+		this.user = UserService.getCurrentUser();
 	}
 	showAddRoomSheet() {
 		this.$mdBottomSheet.show({

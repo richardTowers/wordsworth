@@ -22,16 +22,33 @@ md-card {
 .check-button {
 	margin-left: auto;
 }
+.avatar-list .avatar {
+	margin: 24px;
+	cursor: pointer;
+}
 .avatar {
 	width: 64px;
 	height: 64px;
 	border-radius: 50%;
-	margin: 24px;
 	padding: 2px;
-	cursor: pointer;
 }
 .avatar.selected {
 	border: 3px solid #03a9f4;
+}
+.nickname {
+	width: 7em;
+	text-align: right;
+	padding: 17px;
+	color: white;
+}
+.user {
+	padding-right: 10px;
+}
+a.user {
+	text-decoration: none;
+}
+.md-toolbar-tools.narrow {
+	width: initial;
 }
 @media (max-width: 959px) {
 	.sign-in {
@@ -53,6 +70,16 @@ md-input-group.ng-invalid input.ng-touched {
 }
 .create-button-holder {
 	padding: 30px;
+}
+.pull-right {
+	float: right;
+}
+form.bottom {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
 }
 [ng-cloak] {
 	display: none;

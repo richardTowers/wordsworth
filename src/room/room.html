@@ -1,5 +1,17 @@
 <md-content class="main" flex>
-	<md-toolbar>
-		<h2 class="md-toolbar-tools" ng-bind="room.name"></h2>
+    <md-toolbar layout="row" layout-align="space-between center">
+		<h2 class="md-toolbar-tools narrow"><a href="#/rooms">Rooms</a> / {{room.name}}</h2>
+		<a href="#/profile" layout="row" class="user">
+			<div class="nickname">{{room.user.nickname}}</div>
+			<img class="avatar" ng-src="{{room.user.avatar}}" alt="avatar">
+		</a>
     </md-toolbar>
+    <div ng-repeat="message in room.messages track by $index">
+    	<div>{{message.user.nickname}}</div>
+    	<img class="avatar" alt="avatar" ng-src="{{message.user.avatar}}">
+    	<p ng-bind="message.text"></p>
+    </div>
+    <form class="bottom" ng-submit="room.sendMessage()">
+    	<md-text-float label="Message" class="big" ng-model="room.message"></md-text-float>
+    </form>
 </md-content>
