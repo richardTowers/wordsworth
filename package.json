@@ -18,5 +18,11 @@
     }
   },
   "private": true,
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.10.7",
+    "nedb": "^1.1.1",
+    "socket.io": "^1.2.1",
+    "socket.io-client": "^1.2.1"
+  }
 }

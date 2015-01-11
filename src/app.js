@@ -9,6 +9,7 @@ import Hammer from 'hammer';
 window.Hammer = Hammer;
 
 import angularMaterial from 'angular-material';
+
 import profileModule from 'Wordsworth/profile/';
 import roomsModule from 'Wordsworth/rooms/';
 import roomModule from 'Wordsworth/room/';

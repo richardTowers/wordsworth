@@ -8,6 +8,7 @@ System.config({
 
 System.config({
   "map": {
+    "socket.io-client": "node_modules/socket.io-client/socket.io",
     "Font-Awesome": "github:FortAwesome/Font-Awesome@4.2.0",
     "angular": "github:angular/bower-angular@1.3.8",
     "angular-material": "github:angular/bower-material@0.6.1",
@@ -29,6 +30,6 @@ System.config({
       "css": "github:systemjs/plugin-css@0.1.0",
       "hammer": "github:hammerjs/hammer.js@2.0.4"
     }
-  }
+  },
 });
 
