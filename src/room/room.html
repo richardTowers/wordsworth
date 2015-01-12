@@ -6,11 +6,13 @@
 			<img class="avatar" ng-src="{{room.user.avatar}}" alt="avatar">
 		</a>
     </md-toolbar>
-    <div ng-repeat="message in room.messages track by $index">
-    	<div>{{message.user.nickname}}</div>
-    	<img class="avatar" alt="avatar" ng-src="{{message.user.avatar}}">
-    	<p ng-bind="message.text"></p>
-    </div>
+    <md-card ng-repeat="message in room.messages track by $index" layout="row">
+        <div layout="column" layout-align="center center">
+            <div>{{message.user.nickname}}</div>
+            <img class="avatar" alt="avatar" ng-src="{{message.user.avatar}}">
+        </div>
+    	<p class="message" ng-bind="message.text"></p>
+    </md-card>
     <form class="bottom" ng-submit="room.sendMessage()">
     	<md-text-float label="Message" class="big" ng-model="room.message"></md-text-float>
     </form>

@@ -81,6 +81,9 @@ form.bottom {
 	width: 100%;
 	background-color: white;
 }
+.message {
+	margin-left: 20px;
+}
 [ng-cloak] {
 	display: none;
 }
