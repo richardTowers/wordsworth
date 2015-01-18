@@ -1,6 +1,36 @@
 var express = require('express'),
-	app = express(),
-	socketio = require('socket.io');
+	bodyParser = require('body-parser'),
+	socketio = require('socket.io'),
+	Datastore = require('nedb'),
+	db = new Datastore({ filename: __dirname + '/wordsworth-data', autoload: true }),
+	app = express();
+
+app.use(bodyParser.json());
+
+app.post('/api/rooms', function (req, res) {
+	var body = req.body,
+		doc = {
+			_id: body.name.toLowerCase().replace(/[^a-z]/g, ''),
+			name: body.name,
+			description: body.description
+		};
+
+	db.insert(doc, function (err, newDoc) {
+		if (err) {
+			// Assume its the user's fault (400 - bad request)
+			res.status(400).send(err);
+		}
+		else {
+			res.status(201).send(newDoc);
+		}
+	});
+});
+
+app.get('/api/rooms', function (req, res) {
+	db.find({}, function (err, docs) {
+		res.send(docs);
+	});
+});
 
 app.use('/', express.static(__dirname));
 
