@@ -12,7 +12,8 @@ The back end is an Express node app, at the moment this is just ES5. Socket.io h
 Todo
 ------------
 
-- [ ] Fix up styles so the app is actually usable
-- [ ] JIRA integration (log in with JIRA, harvest user name and Avatar)
 - [x] Desktop notifications
+- [x] Fix up styles so the app is actually usable
 - [ ] Markdown instead of plain text
+- [ ] Fix up styles so the app looks nice
+- [ ] JIRA integration (log in with JIRA, harvest user name and Avatar)
