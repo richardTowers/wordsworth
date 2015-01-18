@@ -22,7 +22,7 @@ class RoomController {
 					$scope.$apply(() => this.messages.push(msg));
 					
 					if (!document.hasFocus()) {
-						notification = NotificationService.sendNotification(msg.user.nickname, { icon: msg.user.avatar, body: msg.text });
+						notification = NotificationService.sendNotification(msg.user.nickname + ' (' + this.room.name + ')', { icon: msg.user.avatar, body: msg.text });
 						if (notification) {
 							setTimeout(() => notification.close(), 4000);
 						}
