@@ -3,12 +3,12 @@
 import io from 'socket.io-client';
 
 class RoomController {
-	constructor ($routeParams, $scope, UserService, roomsResource) {
+	constructor ($routeParams, $scope, UserService, roomsResource, messagesResource) {
 
 		this.room = roomsResource.get({id: $routeParams.name});
 
 		this.user = UserService.getCurrentUser();
-		this.messages = [];
+		this.messages = messagesResource.query({id: $routeParams.name});
 
 		this.room.$promise.then(() => {
 			this.socket = io();

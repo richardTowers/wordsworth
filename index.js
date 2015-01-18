@@ -2,7 +2,8 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	socketio = require('socket.io'),
 	Datastore = require('nedb'),
-	db = new Datastore({ filename: __dirname + '/wordsworth-data', autoload: true }),
+	roomsDb = new Datastore({ filename: __dirname + '/db/wordsworth-rooms', autoload: true }),
+	messagesDb = new Datastore({ filename: __dirname + '/db/wordsworth-messages', autoload: true }),
 	app = express();
 
 app.use(bodyParser.json());
@@ -15,7 +16,7 @@ app.post('/api/rooms', function (req, res) {
 			description: body.description
 		};
 
-	db.insert(doc, function (err, newDoc) {
+	roomsDb.insert(doc, function (err, newDoc) {
 		if (err) {
 			// Assume its the user's fault (400 - bad request)
 			res.status(400).send(err);
@@ -27,22 +28,32 @@ app.post('/api/rooms', function (req, res) {
 });
 
 app.get('/api/rooms', function (req, res) {
-	db.find({}, function (err, docs) {
+	roomsDb.find({}, function (err, docs) {
 		res.send(docs);
 	});
 });
 
 app.get('/api/rooms/:id', function (req, res) {
-	db.find({_id: req.params.id}, function (err, docs) {
-		if (!docs) {
+	roomsDb.findOne({_id: req.params.id}, function (err, doc) {
+		if (err) {
+			res.sendStatus(500);
+			return;
+		}
+		if (!doc) {
 			res.sendStatus(404);
 		}
-		else if (docs.length === 1) {
-			res.send(docs[0]);
-		}
 		else {
+			res.send(doc);
+		}
+	});
+});
+
+app.get('/api/rooms/:id/messages', function (req, res) {
+	messagesDb.find({room: req.params.id}, function (err, docs) {
+		if (err) {
 			res.sendStatus(500);
 		}
+		res.send(docs.reverse());
 	});
 });
 
@@ -62,7 +73,7 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('chat message', function(msg){
-		console.log('message: ', msg);
+		messagesDb.insert(msg);
 		socket.broadcast.emit('chat message', msg);
 	});
 });
