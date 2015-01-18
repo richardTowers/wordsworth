@@ -92,6 +92,9 @@ form.bottom {
 .offset-top {
 	margin-top: 64px;
 }
+md-toolbar .room-description {
+	font-size: 0.7em;
+}
 [ng-cloak] {
 	display: none;
 }

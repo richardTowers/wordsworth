@@ -3,6 +3,8 @@
 		<div class="md-toolbar-tools">
 			<span class="narrow"><a href="#/rooms">Rooms</a> / {{room.room.name}}</span>
 			<span flex></span>
+			<p hide-sm class="room-description" ng-bind="room.room.description"></p>
+			<span flex></span>
 			<a href="#/profile" layout="row" class="user">
 				<div class="nickname">{{room.user.nickname}}</div>
 				<img class="avatar" ng-src="{{room.user.avatar}}" alt="avatar">
