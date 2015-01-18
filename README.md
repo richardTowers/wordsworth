@@ -14,5 +14,5 @@ Todo
 
 - [ ] Fix up styles so the app is actually usable
 - [ ] JIRA integration (log in with JIRA, harvest user name and Avatar)
-- [ ] Desktop notifications
+- [x] Desktop notifications
 - [ ] Markdown instead of plain text

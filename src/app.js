@@ -13,8 +13,9 @@ import angularMaterial from 'angular-material';
 import profileModule from 'Wordsworth/profile/';
 import roomsModule from 'Wordsworth/rooms/';
 import roomModule from 'Wordsworth/room/';
+import notificationsModule from 'Wordsworth/notifications/';
 
-angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name, roomsModule.name, roomModule.name])
+angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name, roomsModule.name, roomModule.name, notificationsModule.name])
 	.config(($routeProvider) => {
 		$routeProvider.when('/profile', {
 			name: 'profile',

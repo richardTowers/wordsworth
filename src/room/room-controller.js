@@ -3,7 +3,7 @@
 import io from 'socket.io-client';
 
 class RoomController {
-	constructor ($routeParams, $scope, UserService, roomsResource, messagesResource) {
+	constructor ($routeParams, $scope, UserService, roomsResource, messagesResource, NotificationService) {
 
 		this.room = roomsResource.get({id: $routeParams.name});
 
@@ -14,8 +14,15 @@ class RoomController {
 			this.socket = io();
 
 			this.socket.on('chat message', (msg) => {
+				var notification;
 				if (msg.room === this.room._id) {
 					$scope.$apply(() => this.messages.push(msg));
+					if (!document.hasFocus()) {
+						notification = NotificationService.sendNotification(msg.user.nickname, { icon: msg.user.avatar, body: msg.text });
+						if (notification) {
+							setTimeout(() => notification.close(), 4000);
+						}
+					}
 				}
 			});
 		});
