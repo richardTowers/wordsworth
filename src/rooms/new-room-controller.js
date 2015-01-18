@@ -1,13 +1,19 @@
 "format es6";
 
 class NewRoomController {
-	constructor ($location, $mdBottomSheet) {
+	constructor ($location, $mdBottomSheet, roomsResource) {
+		this.roomsResource = roomsResource;
 		this.$location = $location;
 		this.$mdBottomSheet = $mdBottomSheet;
 	}
 	create() {
-		this.$location.path('/rooms/' + this.name);
-		this.$mdBottomSheet.hide();
+		this.roomsResource.save({
+			name: this.name,
+			description: this.description
+		}).$promise.then((result) => {
+			this.$location.path('/rooms/' + result._id);
+			this.$mdBottomSheet.hide();
+		});
 	}
 }
 NewRoomController.__name__ = 'NewRoomController';
