@@ -1,4 +1,4 @@
-Wordworth
+Wordsworth
 ============
 
 Wordsworth is a tiny chat application written entirely in JavaScript.
