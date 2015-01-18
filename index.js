@@ -32,6 +32,20 @@ app.get('/api/rooms', function (req, res) {
 	});
 });
 
+app.get('/api/rooms/:id', function (req, res) {
+	db.find({_id: req.params.id}, function (err, docs) {
+		if (!docs) {
+			res.sendStatus(404);
+		}
+		else if (docs.length === 1) {
+			res.send(docs[0]);
+		}
+		else {
+			res.sendStatus(500);
+		}
+	});
+});
+
 app.use('/', express.static(__dirname));
 
 var server = app.listen(3000, function () {
