@@ -49,11 +49,11 @@ app.get('/api/rooms/:id', function (req, res) {
 });
 
 app.get('/api/rooms/:id/messages', function (req, res) {
-	messagesDb.find({room: req.params.id}, function (err, docs) {
+	messagesDb.find({room: req.params.id}).sort({timestamp: 1}).exec(function (err, docs) {
 		if (err) {
 			res.sendStatus(500);
 		}
-		res.send(docs.reverse());
+		res.send(docs);
 	});
 });
 
@@ -68,6 +68,7 @@ var io = socketio(server);
 
 io.on('connection', function (socket) {
 	socket.on('chat message', function(msg){
+		msg.timestamp = new Date();
 		messagesDb.insert(msg);
 		socket.broadcast.emit('chat message', msg);
 	});
