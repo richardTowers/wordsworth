@@ -10,10 +10,13 @@ class RoomController {
 		this.user = UserService.getCurrentUser();
 		this.messages = [];
 
-		this.socket = io();
-		this.socket.on('chat message', (msg) => {
-			$scope.$apply(() => {
-				this.messages.push(msg);
+		this.room.$promise.then(() => {
+			this.socket = io();
+
+			this.socket.on('chat message', (msg) => {
+				if (msg.room === this.room._id) {
+					$scope.$apply(() => this.messages.push(msg));
+				}
 			});
 		});
 	}
@@ -21,6 +24,7 @@ class RoomController {
 		var messageDetails;
 		if (this.message) {
 			messageDetails = {
+				room: this.room._id,
 				user: this.user,
 				text: this.message
 			};
