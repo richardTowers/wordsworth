@@ -8,6 +8,7 @@
       "Font-Awesome": "github:FortAwesome/Font-Awesome@^4.2.0",
       "angular": "^1.3.8",
       "angular-material": "^0.6.1",
+      "angular-resource": "npm:angular-resource@^1.3.36",
       "angular-route": "^1.3.8",
       "hammer": "^2.0.4"
     }

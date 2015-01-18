@@ -5,7 +5,12 @@
 			<div class="nickname">{{rooms.user.nickname}}</div>
 			<img class="avatar" ng-src="{{rooms.user.avatar}}" alt="avatar">
 		</a>
-    </md-toolbar>
+	</md-toolbar>
+	<div layout="row" layout-align="space-around center">
+		<md-card ng-repeat="room in rooms.rooms">
+			<a ng-href="#/rooms/{{room._id}}">{{room.name}}</a>
+		</md-card>
+	</div>
 	<div layout="row" layout-align="center center" class="create-button-holder">
 		<md-button class="md-raised md-primary" ng-click="rooms.showAddRoomSheet()">
 			<i class="fa fa-plus"></i> Create Room
