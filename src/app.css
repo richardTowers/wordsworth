@@ -79,11 +79,18 @@ form.bottom {
 	width: 100%;
 	background-color: white;
 }
-.messages {
-	padding-bottom: 75px;
+.wwScrollIntoView {
+	height: 150px;
 }
 .message {
 	margin-left: 20px;
+}
+.fixed-top {
+	position: fixed;
+	top: 0;
+}
+.offset-top {
+	margin-top: 64px;
 }
 [ng-cloak] {
 	display: none;

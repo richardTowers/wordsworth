@@ -14,8 +14,10 @@ import profileModule from 'Wordsworth/profile/';
 import roomsModule from 'Wordsworth/rooms/';
 import roomModule from 'Wordsworth/room/';
 import notificationsModule from 'Wordsworth/notifications/';
+import wwScrollIntoView from 'Wordsworth/helpers/wwScrollIntoView';
 
 angular.module('wordsworth', ['ngRoute', 'ngMaterial', profileModule.name, roomsModule.name, roomModule.name, notificationsModule.name])
+	.directive(wwScrollIntoView.__name__, wwScrollIntoView)
 	.config(($routeProvider) => {
 		$routeProvider.when('/profile', {
 			name: 'profile',

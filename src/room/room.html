@@ -1,12 +1,15 @@
-<md-content class="main" flex>
-	<md-toolbar md-scroll-shrink layout="row" layout-align="space-between center">
-		<h2 class="md-toolbar-tools narrow"><a href="#/rooms">Rooms</a> / {{room.room.name}}</h2>
-		<a href="#/profile" layout="row" class="user">
-			<div class="nickname">{{room.user.nickname}}</div>
-			<img class="avatar" ng-src="{{room.user.avatar}}" alt="avatar">
-		</a>
+<div class="main" layout="column" layout-fill>
+	<md-toolbar class="fixed-top">
+		<div class="md-toolbar-tools">
+			<span class="narrow"><a href="#/rooms">Rooms</a> / {{room.room.name}}</span>
+			<span flex></span>
+			<a href="#/profile" layout="row" class="user">
+				<div class="nickname">{{room.user.nickname}}</div>
+				<img class="avatar" ng-src="{{room.user.avatar}}" alt="avatar">
+			</a>
+		</div>
 	</md-toolbar>
-	<md-content class="messages">
+	<md-content class="messages offset-top">
 		<md-card ng-repeat="message in room.messages track by $index" layout="row">
 			<div layout="column" layout-align="center center">
 				<div>{{message.user.nickname}}</div>
@@ -14,8 +17,9 @@
 			</div>
 			<p class="message" ng-bind="message.text"></p>
 		</md-card>
+		<ww-scroll-into-view initially on="newMessage"></ww-scroll-into-view>
 	</md-content>
 	<form class="bottom" ng-submit="room.sendMessage()">
 		<md-text-float label="Message" class="big" ng-model="room.message"></md-text-float>
 	</form>
-</md-content>
+</div>
